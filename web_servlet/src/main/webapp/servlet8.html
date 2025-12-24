@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>책 검색 페이지</title>
+</head>
+<body>
+<form name="frm" method="get" action="http://172.30.1.22:8080/web_servlet/servlet9.do">
+<p>책 검색 페이지</p>
+<div>
+	<select name="book">
+		<option value="">검색형태</option>
+		<option value="책이름">책이름</option>
+		<option value="저자명">저자명</option>
+	</select>	
+	<input type="text" name="bookname" placeholder="검색어를 입력하세요">
+	<input type="button" value="검색" onclick="search()">
+</div>
+</form>
+</body>
+<script>
+	function search(){
+		if(frm.book.value==""){
+			alert("검색형태를 지정해 주세요");
+		}	
+		else if(frm.bookname.value==""){
+			alert("검색할 단어를 입력해 주세요");
+			frm.bookname.focus();
+		}
+		else{
+			frm.submit();
+		}
+	}
+</script>
+</html>
