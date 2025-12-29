@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax - Jquery로 GET 통신</title>
+<script src="./jquery.js"></script>
+<script>
+	//$(document).ready(function(){})
+	//$(function(){})
+	$(()=>{
+		
+		$("#btn").click(function(){
+			var $mid = $("#mid").val();
+			if($mid==""){
+				alert("아이디를 입력하셔야만 중복확인 됩니다.");
+			}
+			else {
+			
+				let $data;		//Back-end에서 return받은 값을 출력하는 변수
+				$.ajax({
+					url : "../web_ajax/ajax2.do?mid="+$mid,	//Back-end 통신 경로
+					cache : false,	//브라우져에 캐시를 무시하고 항상 새로운 값을 가져오는 형태
+					type : "get",	//통신 방법
+					dataType : "text",	//전송방식 및 응답 데이터 처리를 텍스트로 처리함
+					async : true, //Jquery 2.x (이상) => 기본 true, Jquery 1.x => false
+					success : function($result){	//성공 => $result는 js에서 this.response와 동일
+						$data = $result;
+						if($data == "ok"){
+							alert("해당 아이디는 사용 가능합니다.");
+						}
+						else if($data == "no"){
+							alert("이미 사용중인 아이디 입니다.");
+						}
+					},
+					error:function(){	//오류
+						console.log("서버와 통신 오류 발생!!");
+					}
+				});	
+			}	
+		});
+		
+		
+		
+			
+	});
+</script>
+</head>
+<body>
+아이디 : <input type="text" id="mid">
+<input type="button" value="아이디 중복체크" id="btn">
+</body>
+
+</html>

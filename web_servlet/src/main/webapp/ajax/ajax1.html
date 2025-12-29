@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax - 기초1</title>
+</head>
+<body>
+<!-- 
+	CRUD : Create(POST), Read(GET), PUT/PATCH(Update), DELETE(Delete)
+	Ajax : Javascript를 이용한 동기(sync), 비동기 통신(async) => 서버와 통신
+	동기(sync) : 서버에서 순서대로 처리 진행 통신 => 은행시스템, ARS
+	비동기(async) : 무작위로 처리 진행 통신 => SMS, 키오스크
+	Ajax => 일반적인 통신방법 (POST,GET)
+	Ajax => Restful-API, RestAPI, MSA  => POST, GET, PUT, PATCH, DELETE
+	
+	200 => Read(POST, GET, PUT, PATCH) 
+	201 => Create성공 (POST)
+	204 => Delete삭제성공 (Delete)
+	500 => 서버 Error
+	Ajax 를 서로 통신하는 방법 : 문자, XML, JSON
+-->
+<input type="button" value="클릭" onclick="ajax_load()">
+</body>
+<script>
+	var aj;	//통신을 사용하는 변수
+	function ajax_load(){
+		function aaa(){
+			//XMLHttpRequest(XHR) : 서버와 클라언트가 서로 상호작용을 할 수 있도록 하는 통신언어
+				if(window.XMLHttpRequest){
+					return new XMLHttpRequest();	//xhr 신규 생성
+				}
+		}
+		function bbb(){
+			//readyState : 요청에 대한 현재 상태값을 나타냅니다.
+			if(aj.readyState==XMLHttpRequest.DONE && aj.status==200){
+				//responseText => 문자로만 핸들링
+				//responseXML => backend에서 XML 형태로 응답을 보내줄 경우
+				//this.response => backend에서 JSON 형태로 응답을 보내줄 경우
+				var result = this.responseText;
+				htmlcode(result);
+				//console.log(this.response);	//서버에서 보내준 값을 출력
+				
+			}
+			else if(aj.status==402 || aj.status==403 || aj.status==500){
+				alert("서버와 통신 오류 발생!!");
+			}
+		}
+		aj = aaa();	//통신 함수를 생성
+		aj.onreadystatechange = bbb;	//onreadystatechange : 통신 결과에 대한 return 역활
+		//?data= 파라미터 값을 통신으로 GET 전송
+		aj.open("GET","../web_ajax/ajax1.do?data=hong",true);  //open("통신방법","서버경로",동기 또는 비동기)
+		//true : 비동기, false : 동기
+		aj.send();	//send : 최종 ajax 통신값을 실행
+	}
+	
+	function htmlcode(data){
+		console.log(data);
+	}
+	
+</script>
+</html>
