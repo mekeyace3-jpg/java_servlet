@@ -7,11 +7,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #333;
 }
 
-
-
-#signupForm {
+#frm {
     max-width: 500px;
     width: 100%;
     background-color: #fff;
@@ -20,9 +19,10 @@ body {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
-#signupForm::before {
+#frm::before {
     content: '';
     position: absolute;
     top: 0;
@@ -54,13 +54,14 @@ input[type="text"], input[type="password"] {
     font-size: 1em;
     transition: all 0.3s ease;
     background-color: #f8f9fa;
+    outline: none;
 }
 
 input[type="text"]:focus, input[type="password"]:focus {
     border-color: #667eea;
     background-color: #fff;
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-    outline: none;
+    transform: scale(1.02);
 }
 
 button {
@@ -73,6 +74,7 @@ button {
     transition: all 0.3s ease;
     margin-left: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    outline: none;
 }
 
 #checkIdBtn, #checkBusinessBtn {
@@ -116,4 +118,37 @@ button[type="submit"]:hover {
 .input-group button {
     flex-shrink: 0;
     margin: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 추가 스타일: 입력 필드에 아이콘 같은 효과 */
+.form-group::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEwIDJDMTMuMzA5IDIgMTYgNS42OTEgMTYgMTBTMTMuMzA5IDIwIDEwIDIwQzYuNjkxIDIwIDQgMTMuMzA5IDQgMTBTNi42OTEgMiAxMCAyWk0xMCAxNEMxMS4xMDQgMTQgMTIgMTMuMTA0IDEyIDEyUzExLjEwNCAxMCAxMCAxMEM4Ljg5NiAxMCA4IDExLjA5NiA4IDEyUzguODk2IDE0IDEwIDE0Wk0xMCA2QzEwLjU1MiA2IDExIDYuNDQ4IDExIDdWMTFIMTJDMTAgMTEuNTUyIDEwLjU1MiAxMSAxMSAxMVY3QzExIDYuNDQ4IDEwLjU1MiA2IDEwIDZaIiBmaWxsPSIjNjY3ZWVhIi8+Cjwvc3ZnPgo=') no-repeat center;
+    opacity: 0.5;
+}
+
+.form-group:nth-child(2)::before {
+    background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEwIDJDMTMuMzA5IDIgMTYgNS42OTEgMTYgMTBTMTMuMzA5IDIwIDEwIDIwQzYuNjkxIDIwIDQgMTMuMzA5IDQgMTBTNi42OTEgMiAxMCAyWk0xMCAxNEMxMS4xMDQgMTQgMTIgMTMuMTA0IDEyIDEyUzExLjEwNCAxMCAxMCAxMEM4Ljg5NiAxMCA4IDExLjA5NiA4IDEyUzguODk2IDE0IDEwIDE0Wk0xMCA2QzEwLjU1MiA2IDExIDYuNDQ4IDExIDdWMTFIMTJDMTAgMTEuNTUyIDEwLjU1MiAxMSAxMSAxMVY3QzExIDYuNDQ4IDEwLjU1MiA2IDEwIDZaIiBmaWxsPSIjNjY3ZWVhIi8+Cjwvc3ZnPgo=') no-repeat center;
+}
+
+/* 더 부드러운 전환 */
+* {
+    box-sizing: border-box;
 }

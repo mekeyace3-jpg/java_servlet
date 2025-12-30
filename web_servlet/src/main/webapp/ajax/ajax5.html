@@ -4,37 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>사업자 회원가입</title>
-    <link rel="stylesheet" href="ajax5.css?v=2">
+    <link rel="stylesheet" href="ajax5.css?v=20251232">
 </head>
 <body>
-    <form id="signupForm">
+    <form id="frm" method="post" action="../web_ajax/memberok.do" onsubmit="return gopage()">
         <div class="form-group">
-            <label for="userId">아이디:</label>
+            <label>아이디:
             <div class="input-group">
-                <input type="text" id="userId" name="userId" required>
-                <button type="button" id="checkIdBtn">중복체크</button>
+                <input type="text" name="userid" required>
+                <button type="button" onclick="ajax_data()">중복체크</button>
             </div>
+            </label>
         </div>
         <div class="form-group">
-            <label for="password">비밀번호:</label>
-            <input type="password" id="password" name="password" required>
+            <label>비밀번호:
+            <input type="password" name="userpw" required>
+            </label>
         </div>
         <div class="form-group">
-            <label for="companyName">회사명:</label>
-            <input type="text" id="companyName" name="companyName" required>
+            <label>회사명:
+            <input type="text" name="companynm" required>
+            </label>
         </div>
         <div class="form-group">
-            <label for="representativeName">대표자명:</label>
-            <input type="text" id="representativeName" name="representativeName" required>
+            <label>대표자명:
+            <input type="text" name="ceonm" required>
+            </label>
         </div>
         <div class="form-group">
-            <label for="businessNumber">사업자 등록번호:</label>
+            <label>사업자 등록번호:
             <div class="input-group">
-                <input type="text" id="businessNumber" name="businessNumber" required>
-                <button type="button" id="checkBusinessBtn">중복체크</button>
+                <input type="text" name="corpno" required>
+                <button type="button" onclick="ajax_data2()">중복체크</button>
             </div>
+            </label>
         </div>
         <button type="submit">회원가입</button>
     </form>
 </body>
+<!-- 비동기 통신
+<script src="./member.js?v=3"></script> 
+-->
+<!-- 동기 통신 -->
+<script src="./member2.js?v=6"></script>
 </html>
