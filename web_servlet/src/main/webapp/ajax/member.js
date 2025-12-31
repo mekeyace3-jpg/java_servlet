@@ -11,7 +11,9 @@ function ajax_data() {	//아이디 중복체크
 	else{
 		/* 비동기화 통신 */
 		ajax_get(frm.userid.value,"3");
-		setTimeout(()=>{
+		
+		//Back-end에서 결과값을 가져올 때 딜레이 상황이 발생하므로 시간함수를 이용하여 적용함
+		setTimeout(function(){
 			console.log(this.check);
 		},2500);
 	}

@@ -1,6 +1,36 @@
 //동기화 통신으로 적용된 스크립트
 function gopage(){	//회원가입 시 적용되는 함수
-	return false;
+	if(frm.userid.value==""){
+		alert("아이디를 입력하세요");
+		return false;
+	}
+	else if(frm.userpw.value==""){
+		alert("패스워드를 입력하세요");
+		return false;
+	}
+	else if(frm.companynm.value==""){
+		alert("회사명을 입력하세요");
+		return false;
+	}
+	else if(frm.ceonm.value==""){
+		alert("대표자명을 입력하세요");
+		return false;
+	}
+	else if(frm.corpno.value==""){
+		alert("사업자 번호를 입력하세요");
+		return false;
+	}
+	else{
+		//아이디 중복체크 버튼을 확인 하지 않을 경우
+		if(frm.userid.readOnly == false){
+			alert("아이디 중복체크를 하셔야만 회원가입이 진행 됩니다.");
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+
 }
 function ajax_data() {	//아이디 중복체크	
 	if(frm.userid.value==""){
@@ -9,8 +39,15 @@ function ajax_data() {	//아이디 중복체크
 	}
 	else{
 		/* 동기화 통신 */
-		var check = ajax_get(frm.userid.value,"3");
-		console.log(check);
+		var check = ajax_get(frm.userid.value,"1");
+		if(check=="ok"){
+			alert("사용가능한 아이디 입니다.");
+			frm.userid.readOnly=true;
+		}
+		else{
+			alert("해당 아이디는 사용할 수 없습니다.");
+			frm.userid.value = "";
+		}
 	}
 }
 

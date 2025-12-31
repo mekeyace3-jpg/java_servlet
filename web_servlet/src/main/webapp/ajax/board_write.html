@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글쓰기</title>
+    <link rel="stylesheet" href="board_write.css">
+    <script src="./ckeditor/ckeditor.js?v=1"></script>
+</head>
+<body>
+	<!--  required 속성은 submit 버튼에서만 작동되는 속성값 -->
+    <h1>글쓰기</h1>
+    <form id="frm" action="../web_ajax/board_writeok.do" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>제목:
+            <input type="text" name="title">
+            </label>
+        </div>
+        <div class="form-group">
+            <label>글쓴이:
+            <input type="text" name="author">
+            </label>
+        </div>
+        <div class="form-group">
+            <label>내용:
+            <textarea name="content"></textarea>
+            </label>
+        </div>
+        <div class="form-group">
+			<!-- multiple : 여러개의 파일을 선택하여 첨부할 수 있는 기능 -->
+			<label>파일 첨부:
+            <input type="file" name="file" multiple>
+            </label>
+			<!--
+            <label>파일 첨부1:
+            <input type="file" name="file">
+            </label>
+            <label>파일 첨부2:
+            <input type="file" name="file">
+            </label>
+            <label>파일 첨부3:
+            <input type="file" name="file">
+            </label>
+            -->
+        </div>
+        <button type="button" onclick="gopage()">글쓰기 완료</button>
+    </form>
+    <script>
+        var editor = CKEDITOR.replace('content');
+       	function gopage(){
+			   var txt = CKEDITOR.instances.content.getData();
+        		console.log(editor);
+			   console.log(txt);
+			   
+			   if(frm.title.value==""){
+				   alert("제목을 입력하세요!");
+				   frm.title.focus();
+			   }
+			   else if(frm.author.value==""){
+				   alert("글쓴이를 입력하세요!");
+				   frm.author.focus();
+			   }
+			   else if(txt==""){
+				   alert("내용을 입력하셔야 합니다.");
+			   }
+			   else{
+				    /* 해당 파일 첨부 갯수 파악 */
+				   	if(frm.file.files.length > 3){
+						   alert("파일의 첨부파일 갯수는 최대 3개까지 입니다.");
+						   frm.file.value = "";
+					}
+				    else{
+			   		frm.submit();
+			   		}			   
+			   }
+			   
+		}
+    </script>
+</body>
+</html>

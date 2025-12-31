@@ -1,7 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
   <display-name>web_servlet</display-name>
+
+  <servlet>
+  <servlet-name>board_writeok</servlet-name>
+  <servlet-class>web_ajax.board_writeok</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>board_writeok</servlet-name>
+  <url-pattern>/web_ajax/board_writeok.do</url-pattern>
+  </servlet-mapping>
+ 
   
+ <servlet>
+  <servlet-name>fileok</servlet-name>
+  <servlet-class>web_ajax.fileok</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>fileok</servlet-name>
+  <url-pattern>/web_ajax/fileok.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  <servlet-name>memberok</servlet-name>
+  <servlet-class>web_ajax.memberok</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>memberok</servlet-name>
+  <url-pattern>/web_ajax/memberok.do</url-pattern>
+  </servlet-mapping>
+    
   <servlet>
   <servlet-name>usercheck</servlet-name>
   <servlet-class>web_ajax.usercheck</servlet-class>
