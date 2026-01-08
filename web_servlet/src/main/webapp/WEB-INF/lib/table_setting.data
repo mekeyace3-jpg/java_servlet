@@ -1,0 +1,4 @@
+select * from event;
+
+insert into event values ('0','홍길동','010-1312-1234','hong@nate.com'
+,'a123456','탄지로','Y','Y','N',now());

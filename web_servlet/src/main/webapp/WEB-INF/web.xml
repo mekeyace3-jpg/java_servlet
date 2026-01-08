@@ -3,6 +3,17 @@
   <display-name>web_servlet</display-name>
 
   <servlet>
+  <servlet-name>event_ok</servlet-name>
+  <servlet-class>event.event_ok</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>event_ok</servlet-name>
+  <url-pattern>/event/event_ok.do</url-pattern>
+  </servlet-mapping>
+
+
+
+  <servlet>
   <servlet-name>board_writeok</servlet-name>
   <servlet-class>web_ajax.board_writeok</servlet-class>
   </servlet>
