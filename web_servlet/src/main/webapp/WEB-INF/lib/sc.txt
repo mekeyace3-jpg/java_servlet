@@ -28,10 +28,10 @@ c_email varchar(100) not null,
 c_tel char(11) not null default '00000000000',
 c_text text not null,
 c_agree enum('Y','N') not null default 'Y',
-c_date datetime not null default current_timestamp,
+c_date s not null default current_timestamp,
 primary key(cidx)
 );
-
+select * from contents;
 
 
 

@@ -3,6 +3,61 @@
   <display-name>web_servlet</display-name>
 
   <servlet>
+  <servlet-name>api_pension</servlet-name>
+  <servlet-class>pension.api_pension</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>api_pension</servlet-name>
+  <url-pattern>/pension/api_pension.do</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+  <servlet-name>notice_list</servlet-name>
+  <servlet-class>pension.notice_list</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>notice_list</servlet-name>
+  <url-pattern>/pension/notice_list.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  <servlet-name>pensionok</servlet-name>
+  <servlet-class>pension.pensionok</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>pensionok</servlet-name>
+  <url-pattern>/pension/pensionok.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  <servlet-name>contentok</servlet-name>
+  <servlet-class>event.contentok</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>contentok</servlet-name>
+  <url-pattern>/event/contentok.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  <servlet-name>addr_list</servlet-name>
+  <servlet-class>event.addr_list</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>addr_list</servlet-name>
+  <url-pattern>/event/addr_list.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  <servlet-name>addrok</servlet-name>
+  <servlet-class>event.addrok</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>addrok</servlet-name>
+  <url-pattern>/event/addrok.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
   <servlet-name>event_ok</servlet-name>
   <servlet-class>event.event_ok</servlet-class>
   </servlet>

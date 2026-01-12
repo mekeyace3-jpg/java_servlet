@@ -13,15 +13,15 @@
         <h2>도로명 주소 입력</h2>
         <label>우편번호</label>
         <div style="display:flex; gap:8px; margin-bottom:16px;">
-            <input type="text" name="postno" class="postcodify_postcode5" placeholder="우편번호" style="flex:1;" readonly>
+            <input type="text" name="mpost" class="postcodify_postcode5" placeholder="우편번호" style="flex:1;" readonly>
             <button type="button" id="btn" style="flex-shrink:0; background:#43a047; color:#fff; border:none; border-radius:4px; padding:0 16px; cursor:pointer;">주소검색</button>
         </div>
         <label>도로명 주소</label>
-        <input type="text" name="postaddr" class="postcodify_address" placeholder="도로명 주소를 입력하세요" readonly>
+        <input type="text" name="maddr1" class="postcodify_address" placeholder="도로명 주소를 입력하세요" readonly>
         <label>상세 주소</label>
-        <input type="text" name="postaddr2" placeholder="상세 주소를 입력하세요">
+        <input type="text" name="maddr2" placeholder="상세 주소를 입력하세요">
         <input type="button" onclick="new_addr()" value="신규 배송지 주소 등록" class="register-btn">
         </form>
 </body>
-<script src="./re6.js"></script>
+<script src="./re6.js?v=2"></script>
 </html>
